@@ -4,7 +4,6 @@ import { Outlet } from "react-router-dom";
 const LoginA = () => {
   return (
     <div>
-      <div>Login</div>
       <Outlet />
     </div>
   );

@@ -10,9 +10,14 @@ export const Section = styled.section`
 `;
 
 export const Img = styled.img`
-  padding-bottom: 50px;
+  width: 500px;
+  height: auto;
+  padding-bottom: 200px;
   text-align: center;
-  @media screen and (max-width: 426px) {
+
+  @media screen and (max-width: 375px) {
+    width: 85%;
+    height: auto;
   }
 `;
 
@@ -31,8 +36,8 @@ export const P = styled.p`
   text-align: center;
   color: #0f0f0f;
 
-  @media screen and (max-width: 426px) {
-    /* position: absolute; */
+  @media screen and (max-width: 375px) {
+    position: absolute;
     left: 22.31%;
     right: 22.31%;
     top: 53.79%;
@@ -49,7 +54,7 @@ export const Button = styled.button`
   display: flex;
   position: absolute;
   height: 50px;
-  width: 200px;
+  width: 150px;
   text-align: center;
   align-items: center;
   bottom: 7.11%;
@@ -61,7 +66,7 @@ export const Button = styled.button`
   padding-left: 10px;
   border: none;
 
-  @media screen and (max-width: 426px) {
+  @media screen and (max-width: 375px) {
     background: #ffe031;
     border-radius: 10px;
     font-size: 1.3rem;

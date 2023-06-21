@@ -10,7 +10,7 @@ function Carrusel() {
     <Section>
       <Carousel>
         <Carousel.Item interval={1000}>
-          <Img className="d-block w-80" src={Comestible} alt="First slide" />
+          <Img src={Comestible} alt="" />
           <Carousel.Caption>
             <P>
               Elige qué comer eligiendo entre una variedad de restaurantes de la
@@ -20,16 +20,16 @@ function Carrusel() {
         </Carousel.Item>
 
         <Carousel.Item interval={500}>
-          <Img className="d-block w-100" src={Maps} alt="Third slide" />
+          <Img src={Maps} alt="" />
           <Carousel.Caption>
             <P>Elige dónde quieres entregar indicando en el mapa.</P>
           </Carousel.Caption>
         </Carousel.Item>
 
         <Carousel.Item>
-          <Img className="d-block w-100" src={Travel} alt="Second slide" />
+          <Img src={Travel} alt="" />
           <Carousel.Caption>
-            <P>Entregaremos lo antes posible..</P>
+            <P>Entregaremos lo antes posible</P>
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>

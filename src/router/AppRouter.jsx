@@ -1,21 +1,25 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, createContext } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Register from "../pages/Register";
+import Register from "../pages/register/Register";
 import PublicRouter from "../router/PublicRouter";
 import PrivateRouter from "../router/PrivateRouter";
 import Layout from "../components/login/Login";
-import Login from "../pages/Login";
-import Home from "../pages/Home";
+import Login from "../pages/login/Login";
+import Home from "../pages/home/Home";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../js/configFirebase/ConfigFirebase";
 import Spinner from "react-bootstrap/Spinner";
 import { useDispatch, useSelector } from "react-redux";
 import { loginActionSync } from "../js/actions/userActions";
 import CarruselLogin from "../pages/CarruselLogin";
+import Details from "../pages/Details";
+
+export const searchParamsContext = createContext({});
 
 const AppRouter = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [restaurantes, setRestaurantes] = useState("");
 
   const dispatch = useDispatch();
 
@@ -52,18 +56,26 @@ const AppRouter = () => {
 
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route element={<PublicRouter isAutentication={isLoggedIn} />}>
-            <Route index element={<Login />} />
-            <Route path="carrusel" element={<CarruselLogin />} />
-            <Route path="register" element={<Register />} />
-          </Route>
-          <Route element={<PrivateRouter isAutentication={isLoggedIn} />}>
+      <searchParamsContext.Provider
+        value={{
+          restaurantes,
+          setRestaurantes,
+        }}
+      >
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route element={<PublicRouter isAutentication={isLoggedIn} />}>
+              <Route index element={<Login />} />
+              <Route path="carrusel" element={<CarruselLogin />} />
+              <Route path="register" element={<Register />} />
+            </Route>
+            {/* <Route element={<PrivateRouter isAutentication={isLoggedIn} />}> */}
             <Route path="home" element={<Home />} />
+            <Route path="details" element={<Details />} />
+            {/* </Route> */}
           </Route>
-        </Route>
-      </Routes>
+        </Routes>
+      </searchParamsContext.Provider>
     </BrowserRouter>
   );
 };
