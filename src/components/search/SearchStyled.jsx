@@ -17,10 +17,7 @@ export const DivSearch = styled.div`
 `;
 
 export const ImgIcon = styled.img`
-  transition: 0.5s;
-  margin-left: 20px;
-  font-size: 22px;
-  cursor: pointer;
+  width: 20px;
   @media screen and (max-width: 375px) {
   }
 `;

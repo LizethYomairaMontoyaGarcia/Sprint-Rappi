@@ -3,7 +3,14 @@ import styled from "styled-components";
 export const DivDetailsProducts = styled.div`
   display: flex;
   flex-direction: column;
-  padding-left: 30px;
+  padding-left: 15px;
+  @media screen and (max-width: 375px) {
+  }
+`;
+
+export const ImgFlecha = styled.img`
+  transform: rotate(180deg);
+  width: 20px;
   @media screen and (max-width: 375px) {
   }
 `;

@@ -13,6 +13,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { loginActionSync } from "../js/actions/userActions";
 import CarruselLogin from "../pages/CarruselLogin";
 import Details from "../pages/Details";
+import Searchs from "../pages/Searchs";
+import DetailsDish from "../pages/DetailsDish";
+import PanelPerson from "../components/panelPerson/PanelPerson";
+import NotFound from "../pages/NotFound";
 
 export const searchParamsContext = createContext({});
 
@@ -32,7 +36,7 @@ const AppRouter = () => {
         setIsLoggedIn(true);
 
         if (!Object.entries(user).length) {
-          console.log("No hay info");
+          console.log("No hay informacion");
           const logged = {
             email: userLogged.auth.currentUser.email,
             name: userLogged.auth.currentUser.displayName,
@@ -72,6 +76,10 @@ const AppRouter = () => {
             {/* <Route element={<PrivateRouter isAutentication={isLoggedIn} />}> */}
             <Route path="home" element={<Home />} />
             <Route path="details" element={<Details />} />
+            <Route path="search" element={<Searchs />} />
+            <Route path="detailsDish" element={<DetailsDish />} />
+            <Route path="panelPerson" element={<PanelPerson />} />
+            <Route path="*" element={<NotFound />} />
             {/* </Route> */}
           </Route>
         </Routes>

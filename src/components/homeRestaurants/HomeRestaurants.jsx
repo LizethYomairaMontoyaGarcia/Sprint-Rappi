@@ -48,44 +48,46 @@ const HomeRestaurants = () => {
   };
 
   return (
-    <DivHomeRestaurants>
-      <div>
-        <DivNameAvatar>
-          <Avatar src={user?.avatar} alt="Avatar" />
-          <NameAvatar>{user?.name}</NameAvatar>
-          <Buttons onClick={() => dispatch(logoutActionAsync())}>
-            Cerrar Sesión
-          </Buttons>
-        </DivNameAvatar>
-      </div>
-      <DivImages>
-        <img src={Special} alt="" />
-        <img src={Parcel} alt="" />
-      </DivImages>
-      <div>
-        <Button />
-      </div>
+    <>
+      <DivHomeRestaurants>
+        <div>
+          <DivNameAvatar>
+            <Avatar src={user?.avatar} alt={user?.name} />
+            <NameAvatar>{user?.name}</NameAvatar>
+            <Buttons onClick={() => dispatch(logoutActionAsync())}>
+              Cerrar Sesión
+            </Buttons>
+          </DivNameAvatar>
+        </div>
+        <DivImages>
+          <img src={Special} alt="" />
+          <img src={Parcel} alt="" />
+        </DivImages>
+        <div>
+          <Button />
+        </div>
 
-      <InfoResta>
-        {restaurantes.map((restaurant, key) => (
-          <Container key={key}>
-            <div>
-              <ImgResta
-                onClick={() => handleClickRestaurantsRappi(restaurant)}
-                src={restaurant.image}
-                alt=""
-              />
-              <H1>{restaurant.name}</H1>
-              <p>
-                <Qualification src={Stars} alt="" />
-                {restaurant.Rating}
-              </p>
-              <p>{restaurant.horario}</p>
-            </div>
-          </Container>
-        ))}
-      </InfoResta>
-    </DivHomeRestaurants>
+        <InfoResta>
+          {restaurantes.map((restaurant, key) => (
+            <Container key={key}>
+              <div>
+                <ImgResta
+                  onClick={() => handleClickRestaurantsRappi(restaurant)}
+                  src={restaurant.image}
+                  alt=""
+                />
+                <H1>{restaurant.name}</H1>
+                <p>{restaurant.horario}</p>
+                <p>
+                  <Qualification src={Stars} alt="" />
+                  {restaurant.Rating}
+                </p>
+              </div>
+            </Container>
+          ))}
+        </InfoResta>
+      </DivHomeRestaurants>
+    </>
   );
 };
 

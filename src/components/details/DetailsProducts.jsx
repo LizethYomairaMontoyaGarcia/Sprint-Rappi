@@ -7,19 +7,33 @@ import {
   ImgResta,
   H1,
   Qualification,
+  ImgFlecha,
 } from "./DetailsProductsStyled";
 import Stars from "../../img/estrellas.png";
-import { ImgProducts, DivDiv, P, PPrice} from "./DetailsProductsStyled";
+import { ImgProducts, DivDiv, P, PPrice } from "./DetailsProductsStyled";
 import Button from "../buttons/Buttons";
+import Flecha from "../../img/flecha.png";
+import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const infoRestaurantsRappi = JSON.parse(
   sessionStorage.getItem("selectedRestaurants")
 );
 
 const DetailsProducts = () => {
+  const navigate = useNavigate();
+
+  const handleClickRestaurantDish = (restaurant) => {
+    sessionStorage.setItem("selectedPlato", JSON.stringify(restaurant));
+    navigate("/detailsDish");
+  };
+
   return (
     <DivDetailsProducts>
       <InfoResta>
+        <Link to="/home/">
+          <ImgFlecha src={Flecha} alt="" />
+        </Link>
         <section>
           <Container>
             <div>
@@ -41,7 +55,11 @@ const DetailsProducts = () => {
       <Div>
         {infoRestaurantsRappi.menu.map((menuItem) => (
           <DivDiv key={menuItem.id}>
-            <ImgProducts src={menuItem.img} alt="" />
+            <ImgProducts
+              onClick={() => handleClickRestaurantDish(infoRestaurantsRappi)}
+              src={menuItem.img}
+              alt=""
+            />
             <div>
               <P>{menuItem.name}</P>
               <PPrice>${menuItem.price}</PPrice>
