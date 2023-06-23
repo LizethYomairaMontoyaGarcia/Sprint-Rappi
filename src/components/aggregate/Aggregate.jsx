@@ -1,3 +1,4 @@
+// import { useSelector } from "react-redux";
 import React, { useState, useEffect } from "react";
 import { DivPayment } from "./AggregateStyled";
 import { HiMinusSm } from "react-icons/hi";
@@ -5,6 +6,8 @@ import { BiPlus } from "react-icons/bi";
 import { useNavigate } from "react-router-dom";
 
 const Aggregate = () => {
+  // const dish = useSelector((store) => store.authReducer.dish);
+  // console.log(dish );
   const [infoSelectedDish, setInfoSelectedDish] = useState();
   const [cantidad2, setCantidad2] = useState(0);
   const navigate = useNavigate();

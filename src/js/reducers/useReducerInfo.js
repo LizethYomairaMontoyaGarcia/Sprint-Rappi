@@ -2,10 +2,10 @@ import {createSlice} from '@reduxjs/toolkit';
 
 const initialState = {
     user: null,
-    restaurantes: [],
-    selectedRestaurantId: null,
+    restaurants: [],
+    selectedRestaurant: null,
     platoSeleccionado: [],
-    cantidad: null,
+    dish: null,
 };
 
 const authSlice = createSlice({
@@ -17,7 +17,7 @@ const authSlice = createSlice({
             state.user = action.payload
         },
         setCantidad: (state, action) => {
-            state.cantidad = action.payload
+            state.dish = action.payload
         }
     }
 });
