@@ -17,7 +17,7 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
 const DetailsProducts = () => {
-  const [setSelectedPlato] = useState(null);
+  const [selectedPlato, setSelectedPlato] = useState(null);
   const infoRestaurantsRappi = JSON.parse(
     sessionStorage.getItem("selectedRestaurants")
   );
