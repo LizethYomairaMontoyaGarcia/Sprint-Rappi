@@ -16,9 +16,11 @@ import {
   Click,
   ButtonGoggle,
   DivButtonGoggle,
+  DivDiv,
 } from "./LoginStyled";
 import { login, loginGoogle } from "../../js/actions/userActions";
 import { FcGoogle } from "react-icons/fc";
+import Logo from "../../img/Logo.png";
 
 const schema = yup.object({
   email: yup
@@ -50,14 +52,21 @@ const Login = () => {
   return (
     <Form onSubmit={handleSubmit(logIn)}>
       <Div>
-        <h1>Iniciar sesion</h1>
+        <figure>
+          <img src={Logo} alt="logo" />
+        </figure>
+        <DivDiv>
+          <h3>Iniciar Sesión</h3>
+          <p>Inicie sesión o cree una cuenta para comenzar a ordenar</p>
+        </DivDiv>
         <DivInput>
+          <label htmlFor="email">Email:</label>
           <Input type="text" id="email" name="email" {...register("email")} />
           <p>{errors.email?.message}</p>
-          <label htmlFor="email">Email:</label>
         </DivInput>
 
         <DivInput>
+          <label htmlFor="password">Contraseña:</label>
           <Input
             type="password"
             id="password"
@@ -65,14 +74,13 @@ const Login = () => {
             {...register("password")}
           />
           <p>{errors.password?.message}</p>
-          <label htmlFor="password">Contraseña:</label>
         </DivInput>
 
         <Action>
           <DivButtonGoggle>
             <button type="submit">Ingresar</button>
           </DivButtonGoggle>
-          
+
           <DivButtonGoggle onClick={() => handleLoginGoogle()}>
             <FcGoogle style={{ fontSize: "1.7rem" }} />
             <ButtonGoggle type="button">Ingresar con Goggle</ButtonGoggle>

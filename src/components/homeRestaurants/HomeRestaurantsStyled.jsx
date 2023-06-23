@@ -90,6 +90,9 @@ export const DivNameAvatar = styled.div`
   display: flex;
   align-items: center;
   margin-top: 20px;
+  div {
+    text-align: center;
+  }
 `;
 
 export const Buttons = styled.button`
@@ -97,19 +100,21 @@ export const Buttons = styled.button`
   font-size: 13px;
   border: none;
   border-radius: 5px;
-  flex: 0 0 auto;
-  width: 100px;
+  width: 120px;
   height: 40px;
-  margin-right: 10px;
-  transition: all 1s ease;
 `;
 
 export const Avatar = styled.img`
-  border-radius: 5px;
+  /* border-radius: 5px;
   width: 90px;
-  height: auto;
+  height: auto; */
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
 `;
 
 export const NameAvatar = styled.h2`
-  font-size: 1.5rem;
+  margin-top: 10px;
+  font-size: 24px;
+  font-weight: bold;
 `;

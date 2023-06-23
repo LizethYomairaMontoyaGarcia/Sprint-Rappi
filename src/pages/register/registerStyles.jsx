@@ -5,7 +5,6 @@ export const Form = styled.form`
   display: flex;
   justify-content: center;
   align-items: center;
- 
 `;
 
 export const Div = styled.div`
@@ -14,6 +13,13 @@ export const Div = styled.div`
   h1 {
     font-weight: 500;
     margin-bottom: 30px;
+  }
+  figure {
+    display: flex;
+    justify-content: center;
+    img {
+      width: 20%;
+    }
   }
 
   @media screen and (max-width: 426px) {
@@ -43,8 +49,7 @@ export const Input = styled.input`
 `;
 
 export const Registers = styled.div`
-  position: absolute;
-  top: 95%;
+  top: 85%;
   right: 10px;
   left: 10px;
   padding-left: 10px;

@@ -11,12 +11,28 @@ export const Form = styled.form`
 export const Div = styled.div`
   width: 100%;
   box-sizing: border-box;
-  h1 {
-    font-weight: 700;
-    margin-bottom: 45px;
+  figure {
+    display: flex;
+    justify-content: center;
+    img {
+      width: 20%;
+    }
   }
+`;
 
-  @media screen and (max-width: 426px) {
+export const DivDiv = styled.div`
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  h3 {
+    font-size: 2rem;
+  }
+  p {
+    width: 40%;
+    text-align: center;
+    font-size: 1.2rem;
   }
 `;
 
@@ -44,7 +60,7 @@ export const Input = styled.input`
 
 export const Action = styled.div`
   position: absolute;
-  top: 160%;
+  top: 95%;
   right: 10px;
   left: 10px;
   button {
@@ -61,6 +77,7 @@ export const Click = styled.div`
   font-size: 1rem;
   margin-top: 25px;
 `;
+
 export const DivButtonGoggle = styled.div`
   display: flex;
   justify-content: center;

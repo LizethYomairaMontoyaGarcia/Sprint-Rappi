@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import classnames from "classnames";
-import Home from "../../img/home.png";
-import Lupa from "../../img/lupa.png";
-import Clocck from "../../img/reloj.png";
-import Persona from "../../img/person.png";
+import { TbHome } from "react-icons/tb";
+import { FiSearch } from "react-icons/fi";
+import { MdOutlineHistory } from "react-icons/md";
+import { FaRegUser } from "react-icons/fa";
 import { FooterIcone, Icono, DIV, Active } from "./FooterStyled";
 
 const Footer = () => {
@@ -45,41 +45,53 @@ const Footer = () => {
     <>
       <FooterIcone>
         <DIV>
-          <Icono
-            src={Home}
-            onClick={handleHomeClick}
-            className={classnames("IconoHome", {
-              active: activeIcon === "home",
-            })}
-          />
-          {activeIcon === "home" && <Active />}
+          <div className="icono">
+            <TbHome
+              onClick={handleHomeClick}
+              style={{
+                color: activeIcon === "home" ? "#FFE031" : "#414141",
+                fontSize: "2rem",
+                cursor: "pointer",
+              }}
+            />
+            {activeIcon === "home" && <Active />}
+          </div>
 
-          <Icono
-            src={Lupa}
-            onClick={handleSearchClick}
-            className={classnames("IconoSearch", {
-              active: activeIcon === "search",
-            })}
-          />
-          {activeIcon === "search" && <Active />}
+          <div className="icono">
+            <FiSearch
+              onClick={handleSearchClick}
+              style={{
+                color: activeIcon === "search" ? "#FFE031" : "#414141",
+                fontSize: "2rem",
+                cursor: "pointer",
+              }}
+            />
+            {activeIcon === "search" && <Active />}
+          </div>
 
-          <Icono
-            src={Clocck}
-            onClick={handleHistoryClick}
-            className={classnames("IconoClock", {
-              active: activeIcon === "clock",
-            })}
-          />
-          {activeIcon === "clock" && <Active />}
+          <div className="icono">
+            <MdOutlineHistory
+              onClick={handleHistoryClick}
+              style={{
+                color: activeIcon === "clock" ? "#FFE031" : "#414141",
+                fontSize: "2rem",
+                cursor: "pointer",
+              }}
+            />
+            {activeIcon === "clock" && <Active />}
+          </div>
 
-          <Icono
-            src={Persona}
-            onClick={handlePanelPersonClick}
-            className={classnames("IconoPerson", {
-              active: activeIcon === "panelPerson",
-            })}
-          />
-          {activeIcon === "panelPerson" && <Active />}
+          <div className="icono">
+            <FaRegUser
+              onClick={handlePanelPersonClick}
+              style={{
+                color: activeIcon === "panelPerson" ? "#FFE031" : "#414141",
+                fontSize: "2rem",
+                cursor: "pointer",
+              }}
+            />
+            {activeIcon === "panelPerson" && <Active />}
+          </div>
         </DIV>
       </FooterIcone>
     </>

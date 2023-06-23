@@ -74,15 +74,15 @@ const AppRouter = () => {
               <Route path="carrusel" element={<CarruselLogin />} />
               <Route path="register" element={<Register />} />
             </Route>
-            {/* <Route element={<PrivateRouter isAutentication={isLoggedIn} />}> */}
-            <Route path="home" element={<Home />} />
-            <Route path="details" element={<Details />} />
-            <Route path="search" element={<Searchs />} />
-            <Route path="detailsDish" element={<DetailsDish />} />
-            <Route path="aggregate" element={<AggregateDish />} />
-            <Route path="panelPerson" element={<PanelPerson />} />
-            <Route path="*" element={<NotFound />} />
-            {/* </Route> */}
+            <Route element={<PrivateRouter isAutentication={isLoggedIn} />}>
+              <Route path="home" element={<Home />} />
+              <Route path="details" element={<Details />} />
+              <Route path="search" element={<Searchs />} />
+              <Route path="detailsDish" element={<DetailsDish />} />
+              <Route path="aggregate" element={<AggregateDish />} />
+              <Route path="panelPerson" element={<PanelPerson />} />
+              <Route path="*" element={<NotFound />} />
+            </Route>
           </Route>
         </Routes>
       </searchParamsContext.Provider>

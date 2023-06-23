@@ -15,6 +15,8 @@ import {
   Registers,
   DivSession,
 } from "./registerStyles";
+import { DivDiv } from "../login/LoginStyled";
+import Logo from "../../img/Logo.png";
 
 const schema = yup.object({
   name: yup.string().required("Por favor ingresar su nombre"),
@@ -67,29 +69,35 @@ const Register = () => {
   return (
     <Form onSubmit={handleSubmit(handleCreateUser)}>
       <Div>
-        <h1>Crear nuevo usurio</h1>
+        <figure>
+          <img src={Logo} alt="logo" />
+        </figure>
+        <DivDiv>
+          <h1>Crear nuevo usurio</h1>
+        </DivDiv>
+
         <DivInput>
+          <label>Nombre:</label>
           <Input type="text" name="name" {...register("name")} />
           <p>{errors.name?.message}</p>
-          <label>Nombre:</label>
         </DivInput>
 
         <DivInput>
+          <label>Email:</label>
           <Input type="text" name="email" {...register("email")} />
           <p>{errors.email?.message}</p>
-          <label>Email:</label>
         </DivInput>
 
         <DivInput>
+          <label>Contraseña:</label>
           <Input type="password" {...register("password")} />
           <p>{errors.password?.message}</p>
-          <label>Contraseña:</label>
         </DivInput>
 
         <DivInput>
+          <label>Confirme Contraseña:</label>
           <Input type="password" {...register("repeatPassword")} />
           <p>{errors.repeatPassword?.message}</p>
-          <label>Confirme Contraseña:</label>
         </DivInput>
 
         <DivInput>

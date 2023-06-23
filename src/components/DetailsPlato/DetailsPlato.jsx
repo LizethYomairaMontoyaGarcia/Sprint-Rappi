@@ -14,15 +14,29 @@ import { useNavigate } from "react-router-dom";
 import { cantidadPlato } from "../../js/actions/restaurantActions";
 
 const DetailsPlato = () => {
-  const [infoSelectedDish, setInfoSelectedDish] = useState(null);
+  const [infoSelectedDish, setInfoSelectedDish] = useState("");
   const navigate = useNavigate();
   const [amount, setAmount] = useState(1);
   const dispatch = useDispatch();
 
   useEffect(() => {
     const selectedPlato = JSON.parse(sessionStorage.getItem("selectedPlato"));
-    setInfoSelectedDish(selectedPlato);
+    const savedData = JSON.parse(sessionStorage.getItem("platoData"));
+
+    if (selectedPlato && savedData) {
+      setInfoSelectedDish(selectedPlato);
+      setAmount(savedData.amount);
+    } else {
+      setInfoSelectedDish(selectedPlato);
+    }
   }, []);
+
+  const priceString = infoSelectedDish.price;
+  const priceNumber = Number(priceString);
+  useEffect(() => {
+    const platoData = { amount, total: amount * priceNumber };
+    sessionStorage.setItem("platoData", JSON.stringify(platoData));
+  });
 
   const handlePlus = () => {
     setAmount(amount + 1);
@@ -42,9 +56,6 @@ const DetailsPlato = () => {
   if (!infoSelectedDish) {
     return null;
   }
-
-  const priceString = infoSelectedDish.price;
-  const priceNumber = Number(priceString.replace("$", ""));
 
   return (
     <div>
