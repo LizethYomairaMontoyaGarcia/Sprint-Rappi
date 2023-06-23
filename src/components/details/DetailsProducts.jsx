@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
   Div,
   DivDetailsProducts,
@@ -16,15 +16,16 @@ import Flecha from "../../img/flecha.png";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
-const infoRestaurantsRappi = JSON.parse(
-  sessionStorage.getItem("selectedRestaurants")
-);
-
 const DetailsProducts = () => {
+  const [selectedPlato, setSelectedPlato] = useState(null);
+  const infoRestaurantsRappi = JSON.parse(
+    sessionStorage.getItem("selectedRestaurants")
+  );
   const navigate = useNavigate();
 
-  const handleClickRestaurantDish = (restaurant) => {
-    sessionStorage.setItem("selectedPlato", JSON.stringify(restaurant));
+  const handleClickRestaurantDish = (plato) => {
+    setSelectedPlato(plato);
+    sessionStorage.setItem("selectedPlato", JSON.stringify(plato));
     navigate("/detailsDish");
   };
 
@@ -56,7 +57,7 @@ const DetailsProducts = () => {
         {infoRestaurantsRappi.menu.map((menuItem) => (
           <DivDiv key={menuItem.id}>
             <ImgProducts
-              onClick={() => handleClickRestaurantDish(infoRestaurantsRappi)}
+              onClick={() => handleClickRestaurantDish(menuItem)}
               src={menuItem.img}
               alt=""
             />

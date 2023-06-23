@@ -1,4 +1,5 @@
 import { userTypes } from "../types/userTypes";
+import {createSlice} from '@reduxjs/toolkit';
 
 const initialValue = {
   user: {},

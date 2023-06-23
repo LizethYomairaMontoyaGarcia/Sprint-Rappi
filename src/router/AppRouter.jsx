@@ -16,7 +16,8 @@ import Details from "../pages/Details";
 import Searchs from "../pages/Searchs";
 import DetailsDish from "../pages/DetailsDish";
 import PanelPerson from "../components/panelPerson/PanelPerson";
-import NotFound from "../pages/NotFound";
+import NotFound from "../pages/notFound/NotFound";
+import AggregateDish from "../pages/AggregateDish";
 
 export const searchParamsContext = createContext({});
 
@@ -78,6 +79,7 @@ const AppRouter = () => {
             <Route path="details" element={<Details />} />
             <Route path="search" element={<Searchs />} />
             <Route path="detailsDish" element={<DetailsDish />} />
+            <Route path="aggregate" element={<AggregateDish />} />
             <Route path="panelPerson" element={<PanelPerson />} />
             <Route path="*" element={<NotFound />} />
             {/* </Route> */}

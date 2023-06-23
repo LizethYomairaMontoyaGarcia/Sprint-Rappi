@@ -1,11 +1,15 @@
 import {
+  GoogleAuthProvider,
     createUserWithEmailAndPassword,
     signInWithEmailAndPassword,
     signOut,
     updateProfile,
+    signInWithPopup
   } from "firebase/auth";
   import { auth } from "../configFirebase/ConfigFirebase";
   import { userTypes } from "../types/userTypes";
+
+  import { setUser } from '../reducers/useReducerInfo';
   
   export const registerActionAsync = ({ email, password, name, avatar }) => {
     return async (dispatch) => {
@@ -93,3 +97,29 @@ import {
       payload: user,
     };
   };
+
+  export const login = (email, password) => {
+    return async (dispatch) => {
+      try {
+        const userCredential = await signInWithEmailAndPassword(auth, email, password);
+        const user = userCredential.user;
+        console.log("user", user)
+        dispatch(setUser(user));
+      } catch (error) {
+        console.log("error", error)
+      }
+    };
+  };
+
+  export const loginGoogle = () => {
+    const provider = new GoogleAuthProvider();
+    return async (dispatch) => {
+      try {
+        const userCredential = await signInWithPopup(auth, provider);
+        console.log('usuario de google', userCredential);
+        dispatch(setUser(userCredential.user));
+      } catch (error) {
+        console.log(error);
+      }
+    }
+  }

@@ -48,11 +48,9 @@ export const Action = styled.div`
   right: 10px;
   left: 10px;
   button {
-    width: 100%;
     color: #000;
-    font-size: 1%.5;
-    padding: 0.8em 0;
-    background: #ffe031;
+    font-size: 1.2rem;
+    background: #fcde33;
     border: none;
     border-radius: 0.2em;
   }
@@ -62,4 +60,27 @@ export const Click = styled.div`
   text-align: center;
   font-size: 1rem;
   margin-top: 25px;
+`;
+export const DivButtonGoggle = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  margin: 3% 0;
+  border-radius: 10px;
+  background: #fcde33;
+  height: 45px;
+  cursor: pointer;
+  &:hover {
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px,
+      rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    transition: box-shadow 0.2s ease-in-out;
+  }
+`;
+
+export const ButtonGoggle = styled.button`
+  color: #000;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 0.2em;
 `;

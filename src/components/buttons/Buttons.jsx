@@ -6,19 +6,21 @@ const Button = () => {
     <Filters>
       <div>
         <Buttons>
-          <img src="" alt=""/> Todos
+          <p>Todos</p>
         </Buttons>
         <Buttons>
-          <img src="" alt=""  /> Pizzas
+          <img
+            src="https://img.icons8.com/?size=512&id=zcIXxtVQHg34&format=png"
+            alt=""
+          />
+          Hamburgesas
         </Buttons>
         <Buttons>
-          <img src="" alt="" /> Hamburgesas
-        </Buttons>
-        <Buttons>
-          <img src="" alt="" /> Sopas
-        </Buttons>
-        <Buttons>
-          <img src="" alt=""  /> Ensaladas
+          <img
+            src="https://img.icons8.com/?size=512&id=oTyopyeAHiFU&format=png"
+            alt=""
+          />
+          Pizzas
         </Buttons>
       </div>
     </Filters>

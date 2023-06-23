@@ -6,7 +6,19 @@ import * as yup from "yup";
 import { useDispatch } from "react-redux";
 import { loginActionAsync } from "../../js/actions/userActions";
 import { Link } from "react-router-dom";
-import { Form, Div, DivInput, Input, Action, Click} from "./LoginStyled";
+import { useState } from "react";
+import {
+  Form,
+  Div,
+  DivInput,
+  Input,
+  Action,
+  Click,
+  ButtonGoggle,
+  DivButtonGoggle,
+} from "./LoginStyled";
+import { login, loginGoogle } from "../../js/actions/userActions";
+import { FcGoogle } from "react-icons/fc";
 
 const schema = yup.object({
   email: yup
@@ -31,6 +43,10 @@ const Login = () => {
     dispatch(loginActionAsync(dataForm.email, dataForm.password));
   };
 
+  const handleLoginGoogle = async () => {
+    await dispatch(loginGoogle());
+    console.log("enviado con google");
+  };
   return (
     <Form onSubmit={handleSubmit(logIn)}>
       <Div>
@@ -53,7 +69,14 @@ const Login = () => {
         </DivInput>
 
         <Action>
-          <button type="submit">ingresar</button>
+          <DivButtonGoggle>
+            <button type="submit">Ingresar</button>
+          </DivButtonGoggle>
+          
+          <DivButtonGoggle onClick={() => handleLoginGoogle()}>
+            <FcGoogle style={{ fontSize: "1.7rem" }} />
+            <ButtonGoggle type="button">Ingresar con Goggle</ButtonGoggle>
+          </DivButtonGoggle>
 
           <Click>
             <p>

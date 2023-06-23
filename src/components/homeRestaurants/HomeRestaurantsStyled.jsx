@@ -8,16 +8,20 @@ export const DivHomeRestaurants = styled.div`
 `;
 
 export const DivImages = styled.div`
-  display: flex;
-  /* justify-content: space-between; */
-  /* width: 200px;
-  height: 150px; */
   margin-top: 20px;
-  img {
-    display: flex;
-    width: 200px;
-    max-width: 100%;
-    height: auto;
+  .carouselAutoplay {
+    div {
+      height: 50vh;
+      margin-right: 1%;
+      border-radius: 10px;
+    }
+    img {
+      width: 80%;
+      border-radius: 10px;
+    }
+    .imgGirar {
+      transform: matrix(-1, 0, 0, 1, 0, 0);
+    }
   }
   @media screen and (max-width: 375px) {
     width: 150px;
@@ -26,7 +30,6 @@ export const DivImages = styled.div`
 `;
 
 export const InfoResta = styled.div`
-  transition: 0.5s;
   display: flex;
   flex-wrap: wrap;
   @media screen and (max-width: 375px) {
@@ -46,7 +49,7 @@ export const ImgResta = styled.img`
   transition: 0.5s;
   border: none;
   margin-bottom: 10px;
-  margin-top: 60px;
+  margin-top: 40px;
   border-radius: 10px;
   &:hover {
     transform: scale(1.1);
@@ -69,7 +72,7 @@ export const Container = styled.div`
 `;
 
 export const H1 = styled.h1`
-  font-size: 30px;
+  font-size: 24px;
   font-weight: bold;
 
   @media screen and (max-width: 375px) {
